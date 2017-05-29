@@ -1,0 +1,26 @@
+﻿@using CircleHsiao.Demo.JQueryUiCombobox.ViewModels
+
+@model JQueryUiComboboxViewModel
+
+@{
+    ViewBag.Title = "JQuery UI Combobox Demo";
+}
+
+<div class="row">
+    <h2>JQuery UI Combobox Demo</h2>
+    <div class="col-md-12">
+        @using (Html.BeginForm()) {
+            <p>Selected Value: @Html.DisplayFor(m => m.SelectedValue)</p>
+            <p>@Html.DropDownListFor(m => m.SelectedValue, @Model.Options, new { @class = "custom-combobox" })</p>
+            <button>submit</button>
+        }
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $(".custom-combobox").combobox();
+        });
+    </script>
+}
